@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Web.Mvc;
+using Business;
 using Business.Services;
 using CurrencyApp.Helpers;
 using CurrencyApp.Models;
+using Ninject;
 
 namespace CurrencyApp.Controllers
 {
@@ -15,7 +17,7 @@ namespace CurrencyApp.Controllers
 
         public JsonResult GetResult(DateTime date)
         {
-            var exchangeRateService = new LbExchangeRatesService(); //TODO: use injection
+            var exchangeRateService = CurrencyAppInjectionKernel.Instance.Get<IExchangeRatesService>();
             var currencies = exchangeRateService.Get(date);
 
             if (currencies == null)
