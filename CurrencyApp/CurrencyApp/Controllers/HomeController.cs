@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using Business.Services;
+using CurrencyApp.Helpers;
 using CurrencyApp.Models;
 
 namespace CurrencyApp.Controllers
@@ -16,16 +15,15 @@ namespace CurrencyApp.Controllers
 
         public JsonResult GetResult()
         {
-            var currencies = new List<CurrencyViewModel>()
+            var exchangeRateService = new LbExchangeRatesService(); //TODO: use injection
+            var currencies = exchangeRateService.Get(DateTime.Now.AddYears(-3));
+
+            if (currencies == null)
             {
-                new CurrencyViewModel() { Name = "EUR", Rate = 1},
-                new CurrencyViewModel() { Name = "PLN", Rate = 0.2584M},
-                new CurrencyViewModel() { Name = "SEK", Rate = 0.1045M},
-                new CurrencyViewModel() { Name = "NOK", Rate = 0.0951M},
-                new CurrencyViewModel() { Name = "DKK", Rate = 0.1128M}
-            };
+                return new JsonResult() {Data = new JsonData() {Success = false}};
+            }
             
-            return new JsonResult() {Data = currencies, JsonRequestBehavior = JsonRequestBehavior.AllowGet}; //TODO: Move the AllowGet to an upper level
+            return new JsonResult() {Data = new JsonData() {Data = currencies}, JsonRequestBehavior = JsonRequestBehavior.AllowGet}; //TODO: Move the AllowGet to an upper level
         }
 
         public ActionResult About()

@@ -2,7 +2,6 @@
 
 currencyApp.controller('currencyController', function ($scope, $http) {
     $http.get("Home/GetResult").then(function (response) {
-
-        $scope.result = response.data;
+        $scope.result = response.data.Data;
     });
 });
