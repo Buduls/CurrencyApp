@@ -1,4 +1,5 @@
-﻿using Business.Services;
+﻿using Business.DataManagers;
+using Business.Services;
 using Ninject;
 
 namespace Business
@@ -27,6 +28,8 @@ namespace Business
 
         private CurrencyAppInjectionKernel()
         {
+            Bind<IExchangeRatesDataManager>().ToConstructor(ctorArg => new LbExchangeRatesDataManager());
+            Bind<IExchangeRatesService>().ToConstructor(ctorArg => new CurrencyAppExchangeRatesService(ctorArg.Inject<IExchangeRatesDataManager>()));
         }
     }
 }

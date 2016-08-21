@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CurrencyAppInjectionKernel.cs" />
+    <Compile Include="DataManagers\ExchangeRaresDataManager.cs" />
     <Compile Include="Dto\ExchangeRateDto.cs" />
     <Compile Include="Service References\LbExchangeRates\Reference.cs">
       <AutoGen>True</AutoGen>
