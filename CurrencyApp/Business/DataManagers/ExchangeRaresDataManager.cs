@@ -12,12 +12,16 @@ namespace Business.DataManagers
         IEnumerable<ExchangeRate> Get(DateTime date);
     }
 
-    public class ExchangeRate
+    public abstract class ExchangeRate
     {
-        public string Date { get; set; }
-        public string Currency { get; set; }
-        public string Quantity { get; set; }
-        public decimal Rate { get; set; }
+        [XmlIgnore]
+        public virtual string Date { get; set; }
+        [XmlIgnore]
+        public virtual string Currency { get; set; }
+        [XmlIgnore]
+        public virtual string Quantity { get; set; }
+        [XmlIgnore]
+        public virtual decimal Rate { get; set; }
     }
 
     public class LbExchangeRatesDataManager : IExchangeRatesDataManager
@@ -75,13 +79,13 @@ namespace Business.DataManagers
         public class LbExchangeRate : ExchangeRate
         {
             [XmlElement("date")]
-            public string Date { get; set; }
+            public override string Date { get; set; }
             [XmlElement("currency")]
-            public string Currency { get; set; }
+            public override string Currency { get; set; }
             [XmlElement("quantity")]
-            public string Quantity { get; set; }
+            public override string Quantity { get; set; }
             [XmlElement("rate")]
-            public decimal Rate { get; set; }
+            public override decimal Rate { get; set; }
         }
     }
 }

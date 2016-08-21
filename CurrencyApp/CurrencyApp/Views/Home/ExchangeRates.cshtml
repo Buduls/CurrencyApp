@@ -2,8 +2,8 @@
     <table>
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Currency rate</th>
+                <th>@Resources.ExchangeRates.Tbl_Heading_Name</th>
+                <th>@Resources.ExchangeRates.Tbl_Heading_Rate</th>
             </tr>
         </thead>
         <tbody>
@@ -15,5 +15,5 @@
     </table>
 </div>
 <div ng-if="!result.Success">
-    <h2>Error when retrieving data. Please try again later.</h2>
+    <h2>@Resources.ExchangeRates.Err_DataLoading</h2>
 </div>
