@@ -13,14 +13,14 @@ namespace CurrencyApp.Controllers
             return View();
         }
 
-        public JsonResult GetResult()
+        public JsonResult GetResult(DateTime date)
         {
             var exchangeRateService = new LbExchangeRatesService(); //TODO: use injection
-            var currencies = exchangeRateService.Get(DateTime.Now.AddYears(-3));
+            var currencies = exchangeRateService.Get(date);
 
             if (currencies == null)
             {
-                return new JsonResult() {Data = new JsonData() {Success = false}};
+                return new JsonResult() {Data = new JsonData() {Success = false}, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
             
             return new JsonResult() {Data = new JsonData() {Data = currencies}, JsonRequestBehavior = JsonRequestBehavior.AllowGet}; //TODO: Move the AllowGet to an upper level
@@ -38,6 +38,11 @@ namespace CurrencyApp.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            base.OnException(filterContext);
         }
     }
 }

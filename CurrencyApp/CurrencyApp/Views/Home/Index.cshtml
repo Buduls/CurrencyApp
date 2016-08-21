@@ -1,18 +1,32 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+
+    var minDate = new DateTime(1993, 06, 25);
+    var maxDate = new DateTime(2014, 12, 31);
 }
 
 <div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a>
+    </p>
 </div>
 
-<div class="row" ng-app="currencyApp">
-    <div class="col-md-4">
+
+<form name="exchangeRatesForm" ng-app="currencyApp" ng-controller="currencyController">
+    <div>
+        <label for="dateFilter">Choose the date:</label>
+        <input id="dateFilter" name="dateFilter" type="date" placeholder="yyyy-MM-dd" 
+               ng-model="date" min="@minDate.ToShortDateString()" max="@maxDate.ToShortDateString()" required=""/> @* TODO: make it non HTML5 compatible *@
+        <span class="error" ng-show="!exchangeRatesForm.dateFilter.$valid && exchangeRatesForm.dateFilter.$dirty">
+            Please input a date between @minDate.ToShortDateString() and @maxDate.ToShortDateString()
+        </span>
+        <a href="" class="btn btn-default" ng-click="GetExchangeRates()">Get exchange rates</a>
+    </div>
+    <div class="col-md-4" ng-hide="hideExchangeRates">
         <h2>My app result</h2>
-        <div ng-controller="currencyController">
+        <div>
             @Html.Partial("ExchangeRates")
         </div>
     </div>
-</div>
+</form>
