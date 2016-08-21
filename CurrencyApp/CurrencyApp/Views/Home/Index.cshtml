@@ -12,20 +12,7 @@
     <div class="col-md-4">
         <h2>My app result</h2>
         <div ng-controller="currencyController">
-            <table>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Currency rate</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="currency in result">
-                        <td>{{currency.Name}}</td>
-                        <td>{{currency.Rate}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            @Html.Partial("ExchangeRates")
         </div>
     </div>
 </div>

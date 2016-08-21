@@ -1,0 +1,19 @@
+﻿<div ng-if="result.Success">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Currency rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="currency in result">
+                <td>{{currency.Name}}</td>
+                <td>{{currency.Rate}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div ng-if="!result.Success">
+    <h2>Error when retrieving data. Please try again later.</h2>
+</div>
