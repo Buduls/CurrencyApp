@@ -27,21 +27,6 @@ namespace CurrencyApp.Controllers
             
             return new JsonResult() {Data = new JsonData() {Data = currencies}, JsonRequestBehavior = JsonRequestBehavior.AllowGet}; //TODO: Move the AllowGet to an upper level
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
         protected override void OnException(ExceptionContext filterContext)
         {
             base.OnException(filterContext);
