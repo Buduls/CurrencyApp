@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using Business;
 using Business.Services;
@@ -15,17 +16,23 @@ namespace CurrencyApp.Controllers
             return View();
         }
 
-        public JsonResult GetResult(DateTime date)
+        public JsonResult GetExchangeRateDifferences(DateTime date)
         {
             var exchangeRateService = CurrencyAppInjectionKernel.Instance.Get<IExchangeRatesService>();
-            var currencies = exchangeRateService.Get(date);
+            var yesterdayExchangeRates = exchangeRateService.Get(date.AddDays(-1));
+            var todayExchangeRates = exchangeRateService.Get(date);
 
-            if (currencies == null)
+            if (yesterdayExchangeRates == null || todayExchangeRates == null)
             {
-                return new JsonResult() {Data = new JsonData() {Success = false}, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                return new JsonResult() { Data = new JsonData() { Success = false }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
+
+            var exchangeRateDifferences = todayExchangeRates.Select(todayRate => new ExchangeRateDifferenceViewModel(
+                yesterdayExchangeRates.SingleOrDefault(yesterdayRate => yesterdayRate.Name == todayRate.Name), todayRate))
+                .Where(item => item.RateDifference != 0)
+                .OrderByDescending(item => item.RateDifference);
             
-            return new JsonResult() {Data = new JsonData() {Data = currencies}, JsonRequestBehavior = JsonRequestBehavior.AllowGet}; //TODO: Move the AllowGet to an upper level
+            return new JsonResult() {Data = new JsonData() {Data = exchangeRateDifferences }, JsonRequestBehavior = JsonRequestBehavior.AllowGet}; //TODO: Move the AllowGet to an upper level
         }
         protected override void OnException(ExceptionContext filterContext)
         {

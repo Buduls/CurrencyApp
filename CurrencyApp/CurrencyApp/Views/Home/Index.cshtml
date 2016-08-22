@@ -1,9 +1,12 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 
-    var minDate = new DateTime(1993, 06, 25);
+    var minDate = new DateTime(1993, 06, 26);
     var maxDate = new DateTime(2014, 12, 31);
 }
+
+<h1>@Resources.ExchangeRates.Hdr_ExchangeRatesDifference</h1>
+@Html.Raw(@Resources.ExchangeRates.Hdr_ExchangeRatesDifferenceGuideline)
 
 <form name="exchangeRatesForm" ng-app="currencyApp" ng-controller="currencyController" ng-cloak>
     <div>

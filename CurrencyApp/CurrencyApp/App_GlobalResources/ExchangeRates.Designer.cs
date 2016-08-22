@@ -88,6 +88,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exchange rates of Litas to foreign currencies differnece.
+        /// </summary>
+        internal static string Hdr_ExchangeRatesDifference {
+            get {
+                return ResourceManager.GetString("Hdr_ExchangeRatesDifference", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Choose a date&lt;/p&gt;&lt;p&gt;The exchange rate difference of the chosen day and the day before will be displayed.&lt;/p&gt;.
+        /// </summary>
+        internal static string Hdr_ExchangeRatesDifferenceGuideline {
+            get {
+                return ResourceManager.GetString("Hdr_ExchangeRatesDifferenceGuideline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose the date:.
         /// </summary>
         internal static string Lbl_ChooseDate {
@@ -97,20 +115,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name.
+        ///   Looks up a localized string similar to Currency.
         /// </summary>
-        internal static string Tbl_Heading_Name {
+        internal static string Tbl_Heading_Currency {
             get {
-                return ResourceManager.GetString("Tbl_Heading_Name", resourceCulture);
+                return ResourceManager.GetString("Tbl_Heading_Currency", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Currency rate.
+        ///   Looks up a localized string similar to Exchange rate difference.
         /// </summary>
-        internal static string Tbl_Heading_Rate {
+        internal static string Tbl_Heading_RateDifference {
             get {
-                return ResourceManager.GetString("Tbl_Heading_Rate", resourceCulture);
+                return ResourceManager.GetString("Tbl_Heading_RateDifference", resourceCulture);
             }
         }
     }

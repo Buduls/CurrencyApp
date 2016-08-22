@@ -2,14 +2,14 @@
     <table>
         <thead>
             <tr>
-                <th>@Resources.ExchangeRates.Tbl_Heading_Name</th>
-                <th>@Resources.ExchangeRates.Tbl_Heading_Rate</th>
+                <th>@Resources.ExchangeRates.Tbl_Heading_Currency</th>
+                <th>@Resources.ExchangeRates.Tbl_Heading_RateDifference</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="currency in result.Data">
-                <td>{{currency.Name}}</td>
-                <td>{{currency.Rate}}</td>
+            <tr ng-repeat="exchangeRate in result.Data">
+                <td>{{exchangeRate.Quantity + " " + exchangeRate.Name}}</td>
+                <td>{{exchangeRate.RateDifference}}%</td>
             </tr>
         </tbody>
     </table>

@@ -29,7 +29,7 @@ namespace Business.Services
                 return null;
             }
 
-            var exchangeRateDtos = exchangeRates.Select(item => new ExchangeRateDto() { Name = item.Currency, Rate = item.Rate});
+            var exchangeRateDtos = exchangeRates.Select(item => new ExchangeRateDto() { Name = item.Currency, Rate = item.Rate, Quantity = item.Quantity});
             
             return exchangeRateDtos;
         }
