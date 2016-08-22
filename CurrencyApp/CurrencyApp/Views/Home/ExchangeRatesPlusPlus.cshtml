@@ -1,0 +1,24 @@
+﻿<div ng-if="result.Success">
+    <table>
+        <thead>
+            <tr>
+                <th>@Resources.ExchangeRates.Tbl_Heading_Currency</th>
+                <th>@Resources.ExchangeRates.Tbl_Heading_RateDifference</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="exchangeRate in result.Data">
+                <td>{{exchangeRate.Quantity + " " + exchangeRate.Name}}</td>
+                <td class="increasedRate" ng-show="exchangeRate.RateDifference > 0">
+                    <i class="fa fa-arrow-up"></i>{{exchangeRate.RateDifference}}%
+                </td>
+                <td class="decreasedRate" ng-show="exchangeRate.RateDifference < 0">
+                    <i class="fa fa-arrow-down"></i> {{exchangeRate.RateDifference}}%
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div ng-if="!result.Success">
+    <h2>@Resources.ExchangeRates.Err_DataLoading</h2>
+</div>

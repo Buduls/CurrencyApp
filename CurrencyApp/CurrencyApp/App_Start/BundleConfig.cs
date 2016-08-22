@@ -34,6 +34,10 @@ namespace CurrencyApp
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
+
+            bundles.Add(new StyleBundle("~/Content/fontAwesome").Include(
+                      "~/Content/font-awesome.css"));
+
             bundles.Add(new StyleBundle("~/Content/custom").Include(
                       "~/Content/Main.css"));
         }
