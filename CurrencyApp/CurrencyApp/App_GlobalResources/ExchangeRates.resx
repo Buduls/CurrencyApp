@@ -127,7 +127,7 @@
     <value>Please input a date between {0} and {1}</value>
   </data>
   <data name="Hdr_ExchangeRatesDifference" xml:space="preserve">
-    <value>Exchange rates of Litas to foreign currencies differnece</value>
+    <value>Exchange rates of Litas to foreign currencies difference</value>
   </data>
   <data name="Hdr_ExchangeRatesDifferenceGuideline" xml:space="preserve">
     <value>&lt;p&gt;Choose a date&lt;/p&gt;&lt;p&gt;The exchange rate difference of the chosen day and the day before will be displayed.&lt;/p&gt;</value>

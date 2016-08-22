@@ -88,7 +88,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Exchange rates of Litas to foreign currencies differnece.
+        ///   Looks up a localized string similar to Exchange rates of Litas to foreign currencies difference.
         /// </summary>
         internal static string Hdr_ExchangeRatesDifference {
             get {

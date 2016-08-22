@@ -11,6 +11,11 @@ namespace CurrencyApp.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult IndexPlusPlus()
+        {
+            return View();
+        }
+
         public ActionResult Index()
         {
             return View();
