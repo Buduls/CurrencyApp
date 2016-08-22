@@ -32,7 +32,7 @@ namespace CurrencyApp.Controllers
                 .Where(item => item.RateDifference != 0)
                 .OrderByDescending(item => item.RateDifference);
             
-            return new JsonResult() {Data = new JsonData() {Data = exchangeRateDifferences }, JsonRequestBehavior = JsonRequestBehavior.AllowGet};
+            return new JsonResult() {Data = new JsonData() {Data = exchangeRateDifferences }, JsonRequestBehavior = JsonRequestBehavior.AllowGet}; //TODO: Move the AllowGet to an upper level
         }
         protected override void OnException(ExceptionContext filterContext)
         {
