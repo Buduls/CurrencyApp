@@ -20,3 +20,7 @@
 .decreasedRate {
     color:red
 }
+
+.exchangeRateDifference i{
+    margin-right: 3px
+}
