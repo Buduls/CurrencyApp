@@ -2,6 +2,18 @@
   display: none !important;
 }
 
+#menuLogo {
+    height: 100px
+}
+
+.navbar {
+    background-color: #4f4f4f
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color:white
+}
+
 .increasedRate {
     color:green
 }
