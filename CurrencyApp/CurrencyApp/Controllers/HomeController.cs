@@ -26,22 +26,21 @@ namespace CurrencyApp.Controllers
             var exchangeRateService = CurrencyAppInjectionKernel.Instance.Get<IExchangeRatesService>();
             var yesterdayExchangeRates = exchangeRateService.Get(date.AddDays(-1));
             var todayExchangeRates = exchangeRateService.Get(date);
+            var returnObj = new JsonResult() { JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 
             if (yesterdayExchangeRates == null || todayExchangeRates == null)
             {
-                return new JsonResult() { Data = new JsonData() { Success = false }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                returnObj.Data = new JsonData() {Success = false};
+                return returnObj;
             }
 
             var exchangeRateDifferences = todayExchangeRates.Select(todayRate => new ExchangeRateDifferenceViewModel(
                 yesterdayExchangeRates.SingleOrDefault(yesterdayRate => yesterdayRate.Name == todayRate.Name), todayRate))
                 .Where(item => item.RateDifference != 0)
                 .OrderByDescending(item => item.RateDifference);
-            
-            return new JsonResult() {Data = new JsonData() {Data = exchangeRateDifferences }, JsonRequestBehavior = JsonRequestBehavior.AllowGet}; //TODO: Move the AllowGet to an upper level
-        }
-        protected override void OnException(ExceptionContext filterContext)
-        {
-            base.OnException(filterContext);
+
+            returnObj.Data = new JsonData() { Data = exchangeRateDifferences };
+            return returnObj;
         }
     }
 }
