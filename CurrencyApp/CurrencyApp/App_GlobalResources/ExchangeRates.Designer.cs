@@ -131,5 +131,14 @@ namespace Resources {
                 return ResourceManager.GetString("Tbl_Heading_RateDifference", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No exchange rate differences found for the provided date..
+        /// </summary>
+        internal static string Txt_NoResultFound {
+            get {
+                return ResourceManager.GetString("Txt_NoResultFound", resourceCulture);
+            }
+        }
     }
 }

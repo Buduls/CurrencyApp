@@ -1,5 +1,5 @@
 ﻿<div ng-if="result.Success">
-    <table>
+    <table ng-if="result.Data.length != 0">
         <thead>
             <tr>
                 <th>@Resources.ExchangeRates.Tbl_Heading_Currency</th>
@@ -13,6 +13,7 @@
             </tr>
         </tbody>
     </table>
+    <span ng-if="result.Data.length == 0">@Resources.ExchangeRates.Txt_NoResultFound</span>
 </div>
 <div ng-if="!result.Success">
     <h2>@Resources.ExchangeRates.Err_DataLoading</h2>

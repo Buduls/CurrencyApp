@@ -141,4 +141,7 @@
   <data name="Tbl_Heading_RateDifference" xml:space="preserve">
     <value>Exchange rate difference</value>
   </data>
+  <data name="Txt_NoResultFound" xml:space="preserve">
+    <value>No exchange rate differences found for the provided date.</value>
+  </data>
 </root>
