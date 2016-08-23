@@ -61,8 +61,6 @@ namespace Business.DataManagers
             EndpointAddress address = new EndpointAddress(ServiceUrl);
             var binding = new BasicHttpBinding(BasicHttpSecurityMode.None);
 
-            //TODO: setup necessary constraints
-
             var factory = new ChannelFactory<ExchangeRatesSoap>(binding, address);
             var service = factory.CreateChannel();
 
