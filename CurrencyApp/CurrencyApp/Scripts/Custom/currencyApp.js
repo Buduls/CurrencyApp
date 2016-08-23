@@ -17,6 +17,7 @@ currencyApp.controller('currencyController', function ($scope, $http) {
 currencyApp.controller('currencyControllerPlusPlus', function ($scope, $http) {
     $scope.hideExchangeRates = true;
     $scope.GetExchangeRates = function () {
+        console.log($scope.date);
         if ($scope.exchangeRatesForm.$valid) {
             $http.get("GetExchangeRateDifferences", { params: { date: $scope.date } }).then(function (response) {
                 $scope.result = response.data;

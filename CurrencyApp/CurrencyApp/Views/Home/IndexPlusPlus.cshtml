@@ -12,11 +12,10 @@
     <div>
         <label for="dateFilter">@Resources.ExchangeRates.Lbl_ChooseDate</label>
         <input id="dateFilter" name="dateFilter" type="date" placeholder="yyyy-MM-dd" 
-               ng-model="date" min="@minDate.ToShortDateString()" max="@maxDate.ToShortDateString()" required=""/>
+               ng-model="date" ng-change="GetExchangeRates()" min="@minDate.ToShortDateString()" max="@maxDate.ToShortDateString()" required=""/>
         <span class="error" ng-show="!exchangeRatesForm.dateFilter.$valid && exchangeRatesForm.dateFilter.$dirty">
             @String.Format(Resources.ExchangeRates.Err_WrongDateInput, @minDate.ToShortDateString(), @maxDate.ToShortDateString())
         </span>
-        <a href="" class="btn btn-default" ng-click="GetExchangeRates()">@Resources.ExchangeRates.Btn_GetExchangeRates</a>
     </div>
     <div class="col-md-4" ng-hide="hideExchangeRates">
         <div>
