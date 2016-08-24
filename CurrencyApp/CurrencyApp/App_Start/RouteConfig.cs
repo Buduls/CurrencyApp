@@ -16,7 +16,7 @@ namespace CurrencyApp
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { id = UrlParameter.Optional }
+                defaults: new { Controller="Home", Action="Index", id = UrlParameter.Optional }
             );
         }
     }

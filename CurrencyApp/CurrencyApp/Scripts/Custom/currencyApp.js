@@ -4,7 +4,7 @@ currencyApp.controller('currencyController', function ($scope, $http) {
     $scope.hideExchangeRates = true;
     $scope.GetExchangeRates = function () {
         if ($scope.exchangeRatesForm.$valid) {
-            $http.get("GetExchangeRateDifferences", { params: { date: $scope.date } }).then(function (response) {
+            $http.get(SITE_URL + "Home/GetExchangeRateDifferences", { params: { date: $scope.date } }).then(function (response) {
                 $scope.result = response.data;
                 $scope.hideExchangeRates = false;
             });
@@ -21,7 +21,7 @@ currencyApp.controller('currencyControllerPlusPlus', function ($scope, $http) {
     $scope.GetExchangeRates = function () {
         $scope.isLoading = true;
         if ($scope.exchangeRatesForm.$valid) {
-            $http.get("GetExchangeRateDifferences", { params: { date: $scope.date } })
+            $http.get(SITE_URL + "Home/GetExchangeRateDifferences", { params: { date: $scope.date } })
                 .then(function (response) {
                     $scope.result = response.data;
                     $scope.hideExchangeRates = false;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Business;
 using Business.Services;
 using CurrencyApp.Helpers;
@@ -11,6 +12,15 @@ namespace CurrencyApp.Controllers
 {
     public class HomeController : Controller
     {
+        protected override void Initialize(RequestContext requestContext)
+        {
+            var Request = requestContext.HttpContext.Request;
+
+            ViewBag.BaseUrl = Request.Url.Scheme + "://" + Request.Url.Authority +
+                Request.ApplicationPath.TrimEnd('/') + "/";
+            base.Initialize(requestContext);
+        }
+
         public ActionResult IndexPlusPlus()
         {
             return View();

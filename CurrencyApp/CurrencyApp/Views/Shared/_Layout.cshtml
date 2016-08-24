@@ -40,5 +40,8 @@
     @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/custom")
     @RenderSection("scripts", required: false)
+    <script>
+        var SITE_URL = '@ViewBag.BaseUrl';
+    </script>
 </body>
 </html>
