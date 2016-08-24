@@ -21,11 +21,6 @@ namespace CurrencyApp.Controllers
             base.Initialize(requestContext);
         }
 
-        public ActionResult IndexPlusPlus()
-        {
-            return View();
-        }
-
         public ActionResult Index()
         {
             return View();

@@ -9,7 +9,12 @@
         <tbody>
             <tr ng-repeat="exchangeRate in result.Data">
                 <td>{{exchangeRate.Quantity + " " + exchangeRate.Name}}</td>
-                <td>{{exchangeRate.RateDifference}}%</td>
+                <td class="exchangeRateDifference increasedRate" ng-show="exchangeRate.RateDifference > 0">
+                    <i class="fa fa-arrow-up"></i>{{exchangeRate.RateDifference}}%
+                </td>
+                <td class="exchangeRateDifference decreasedRate" ng-show="exchangeRate.RateDifference < 0">
+                    <i class="fa fa-arrow-down"></i> {{exchangeRate.RateDifference}}%
+                </td>
             </tr>
         </tbody>
     </table>
