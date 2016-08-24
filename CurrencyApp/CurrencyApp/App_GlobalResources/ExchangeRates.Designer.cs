@@ -97,7 +97,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;Choose a date&lt;/p&gt;&lt;p&gt;The exchange rate difference of the chosen day and the day before will be displayed.&lt;/p&gt;.
+        ///   Looks up a localized string similar to Choose a date. The exchange rate difference of the chosen day and the day before will be displayed..
         /// </summary>
         internal static string Hdr_ExchangeRatesDifferenceGuideline {
             get {

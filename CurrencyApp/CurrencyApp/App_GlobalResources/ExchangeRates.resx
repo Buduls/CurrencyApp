@@ -130,7 +130,7 @@
     <value>Exchange rates of Litas to foreign currencies difference</value>
   </data>
   <data name="Hdr_ExchangeRatesDifferenceGuideline" xml:space="preserve">
-    <value>&lt;p&gt;Choose a date&lt;/p&gt;&lt;p&gt;The exchange rate difference of the chosen day and the day before will be displayed.&lt;/p&gt;</value>
+    <value>Choose a date. The exchange rate difference of the chosen day and the day before will be displayed.</value>
   </data>
   <data name="Lbl_ChooseDate" xml:space="preserve">
     <value>Choose the date:</value>
